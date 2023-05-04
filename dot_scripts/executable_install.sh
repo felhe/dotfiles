@@ -5,6 +5,7 @@ PACKAGES=(
     zsh
     git
     curl
+    nnn
 )
 
 # Set color variables for echo messages
