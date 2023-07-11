@@ -46,5 +46,11 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:
 echo -e "${BLUE}Installing starship${NC}"
 curl -fsSL https://starship.rs/install.sh | sh
 
+# Install nvm
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh | bash
+nvm install --lts
+nvm install-latest-npm
+npm i -g git-user-switch
+
 echo -e "${BLUE}Installation complete${NC}"
 
