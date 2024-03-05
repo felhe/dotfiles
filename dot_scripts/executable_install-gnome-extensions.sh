@@ -16,6 +16,7 @@ extensions=(
     "Vitals@CoreCoding.com"   # https://extensions.gnome.org/extension/1460/vitals/
     "3193"   # https://extensions.gnome.org/extension/3193/blur-my-shell/
     "307"	# https://extensions.gnome.org/extension/307/dash-to-dock/
+    "2236"    # https://extensions.gnome.org/extension/2236/night-theme-switcher/
     # Add more extension IDs here as needed
 )
 
@@ -28,4 +29,3 @@ done
 # workaround for tray icons necessary
 sudo dnf install gnome-shell-extension-appindicator
 gnome-extensions enable appindicatorsupport@rgcjonas.gmail.com
-
