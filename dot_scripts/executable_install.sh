@@ -24,7 +24,7 @@ elif [ -n "$(command -v dnf)" ]; then
     echo -e "${BLUE}Detected Fedora based system${NC}"
     sudo dnf update
     sudo dnf install -y "${PACKAGES[@]}"
-    sudo lchsh $USER
+    chsh -s $(which zsh)
 else
     echo -e "${BLUE}Unsupported distribution${NC}"
     exit 1
@@ -48,6 +48,11 @@ curl -fsSL https://starship.rs/install.sh | sh
 
 # Install nvm
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh | bash
+# Load nvm
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
 nvm install --lts
 nvm install-latest-npm
 npm i -g git-user-switch
