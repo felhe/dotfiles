@@ -82,7 +82,7 @@ if ask_confirmation "Do you want to install zsh?"; then
 fi
 
 
-if ask_confirmation "Do you want to install nvm?"; then
+if ask_confirmation "Do you want to install dev tools?"; then
 	# Install nvm
 	echo -e "${BLUE}Installing nvm and NodeJS${NC}"
 	curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh | bash
@@ -100,8 +100,13 @@ if ask_confirmation "Do you want to install nvm?"; then
 	GIT_SU_DIR="$HOME/bin"
 	wget -qO- "$GIT_SU_URL" | tar -xz -C "$GIT_SU_DIR" --wildcards 'git-su' && chmod +x "$GIT_SU_DIR/git-su"
 	
+	echo -e "${BLUE}Installing pip${NC}"
+	install_packages python3-pip
+	
+	echo -e "${BLUE}Installing conda${NC}"
+	install_packages conda
 else
-    echo -e "${BLUE}Skipping nvm installation.${NC}"
+    echo -e "${BLUE}Skipping installation of dev tools.${NC}"
 fi
 
 echo -e "${BLUE}Installation complete${NC}"
