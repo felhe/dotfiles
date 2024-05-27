@@ -17,6 +17,7 @@ extensions=(
     "3193"   # https://extensions.gnome.org/extension/3193/blur-my-shell/
     "307"	# https://extensions.gnome.org/extension/307/dash-to-dock/
     "2236"    # https://extensions.gnome.org/extension/2236/night-theme-switcher/
+    "779"    # https://extensions.gnome.org/extension/779/clipboard-indicator/
     # Add more extension IDs here as needed
 )
 
