@@ -35,7 +35,7 @@ install_packages() {
         echo "No packages provided."
         return 1
     fi
-    
+
     # Check if running on Ubuntu or Fedora
 	if [ -n "$(command -v apt-get)" ]; then
 		# Ubuntu based system
@@ -60,10 +60,9 @@ install_packages "${PACKAGES[@]}"
 if ask_confirmation "Do you want to install zsh?"; then
 
     install_packages zsh nnn
-	
 	# Set zsh
 	chsh -s $(which zsh)
-	
+
 	# Install oh-my-zsh
 	echo -e "${BLUE}Installing oh-my-zsh${NC}"
 	sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --keep-zshrc --unattended
@@ -81,8 +80,7 @@ if ask_confirmation "Do you want to install zsh?"; then
 	curl -fsSL https://starship.rs/install.sh | sh -s -- -y
 fi
 
-
-if ask_confirmation "Do you want to install dev tools?"; then
+if ask_confirmation "Do you want to install nvm and NodeJS?"; then
 	# Install nvm
 	echo -e "${BLUE}Installing nvm and NodeJS${NC}"
 	curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh | bash
@@ -94,20 +92,23 @@ if ask_confirmation "Do you want to install dev tools?"; then
 	nvm install --lts
 	nvm install-latest-npm
 	#npm i -g git-user-switch
-	
+fi
+
+if ask_confirmation "Do you want to install git su?"; then
 	echo -e "${BLUE}Installing git su${NC}"
 	GIT_SU_URL="https://github.com/matsuyoshi30/gitsu/releases/download/v1.1.0/gitsu_1.1.0_linux_x86_64.tar.gz"
 	GIT_SU_DIR="$HOME/bin"
 	wget -qO- "$GIT_SU_URL" | tar -xz -C "$GIT_SU_DIR" --wildcards 'git-su' && chmod +x "$GIT_SU_DIR/git-su"
-	
+fi
+
+if ask_confirmation "Do you want to install pip?"; then
 	echo -e "${BLUE}Installing pip${NC}"
 	install_packages python3-pip
-	
+fi
+
+if ask_confirmation "Do you want to install conda?"; then
 	echo -e "${BLUE}Installing conda${NC}"
 	install_packages conda
-else
-    echo -e "${BLUE}Skipping installation of dev tools.${NC}"
 fi
 
 echo -e "${BLUE}Installation complete${NC}"
-
