@@ -1,3 +1,5 @@
+# Add deno completions to search path
+if [[ ":$FPATH:" != *":/home/felix/.zsh/completions:"* ]]; then export FPATH="/home/felix/.zsh/completions:$FPATH"; fi
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/.local/bin:$HOME/bin:/usr/local/bin:$PATH
 
@@ -72,3 +74,4 @@ export EDITOR='nano'
 
 # Init starship
 eval "$(starship init zsh)"
+. "/home/felix/.deno/env"
