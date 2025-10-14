@@ -30,3 +30,5 @@ done
 # workaround for tray icons necessary
 sudo dnf install gnome-shell-extension-appindicator
 gnome-extensions enable appindicatorsupport@rgcjonas.gmail.com
+
+sudo dnf install gnome-tweaks
