@@ -74,4 +74,3 @@ export EDITOR='nano'
 
 # Init starship
 eval "$(starship init zsh)"
-. "/home/felix/.deno/env"
