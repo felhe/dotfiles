@@ -97,7 +97,8 @@ fi
 if ask_confirmation "Do you want to install git su?"; then
 	echo -e "${BLUE}Installing git su${NC}"
 	GIT_SU_URL="https://github.com/matsuyoshi30/gitsu/releases/download/v1.1.0/gitsu_1.1.0_linux_x86_64.tar.gz"
-	GIT_SU_DIR="$HOME/bin"
+	GIT_SU_DIR="$HOME/.local/bin"
+	mkdir -p "$GIT_SU_DIR"
 	wget -qO- "$GIT_SU_URL" | tar -xz -C "$GIT_SU_DIR" --wildcards 'git-su' && chmod +x "$GIT_SU_DIR/git-su"
 fi
 
